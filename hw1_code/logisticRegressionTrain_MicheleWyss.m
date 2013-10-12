@@ -2,7 +2,6 @@ function [ theta ] = logisticRegressionTrain_MicheleWyss( DataTrain, LabelsTrain
 % Using the training data in DataTrain and LabelsTrain trains a logistic
 % regression classifier theta. 
 % 
-% Implement a Newton-Raphson algorithm.
 %
 % DataTrain = 
 % x1.1 x1.2 x1.3 x1.4 ... x1.576
