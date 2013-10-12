@@ -52,7 +52,7 @@ for i=1:maxIterations
         hessian = hessian + (h(theta,DataTrain(k,:)') .* (1 - h(theta,DataTrain(k,:)')) .* DataTrain(k,:)' * DataTrain(k,:));
     end
     
-    hessian = hessian ./m;
+    hessian = -hessian ./m;
 
     theta = theta - inv(hessian) * grad_log_likelihood';
 end
