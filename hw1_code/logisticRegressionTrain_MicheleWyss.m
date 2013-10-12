@@ -22,7 +22,10 @@ LabelsTrain = (LabelsTrain > 0);
 % number of training samples
 m = size(LabelsTrain,2);
 
-theta = zeros(577,1);
+% feature dimension
+dimension = size(DataTrain,2);
+
+theta = zeros(dimension,1);
 
 % sigmoid function
 sigmoid = @(x) 1/(1 + exp(-x));
@@ -38,7 +41,7 @@ h = @(theta_vec,x) sigmoid(theta_vec'*x);
 for i=1:maxIterations
 
     % compute gradient of the log likelihood
-    grad_log_likelihood = zeros(1,577);
+    grad_log_likelihood = zeros(1,dimension);
     for k=1:m
         grad_log_likelihood = grad_log_likelihood + (LabelsTrain(1,k) - h(theta,DataTrain(k,:)')) * DataTrain(k,:);
     end
@@ -47,7 +50,7 @@ for i=1:maxIterations
     
     
     % compute hessian
-    hessian = zeros(577);
+    hessian = zeros(dimension);
     for k=1:m
         hessian = hessian + (h(theta,DataTrain(k,:)') .* (1 - h(theta,DataTrain(k,:)')) .* DataTrain(k,:)' * DataTrain(k,:));
     end
