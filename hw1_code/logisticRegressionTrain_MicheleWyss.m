@@ -4,9 +4,9 @@ function [ theta ] = logisticRegressionTrain_MicheleWyss( DataTrain, LabelsTrain
 % 
 %
 % DataTrain = 
-% x1.1 x1.2 x1.3 x1.4 ... x1.576
+% x1.1 x1.2 x1.3 x1.4 ... x1.577
 % ...
-% xm.1 xm.2 x2.3 ...  ... xm.576
+% xm.1 xm.2 x2.3 ...  ... xm.577
 %
 % LabelsTrain = 
 % (y1 y2 y3 y4 ... ym)
