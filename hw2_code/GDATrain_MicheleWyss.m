@@ -1,8 +1,8 @@
 function [phi, mu0, mu1, Sigma] = GDATrain_MicheleWyss( DataTrain, LabelsTrain )
+% Author: Michèle Wyss
+% Immatriculation No.: 10-104-123
 
 dim = size(DataTrain,2);
-
-
 
 % map labels to {0,1}
 LabelsTrain = LabelsTrain>0;
@@ -42,8 +42,16 @@ mu1 = mu1';
 % dummy
 % phi = 0.5;
 Sigma = eye(dim);
-% mu0 = zeros(dim,1); mu0([230 421 167]) = 75;
-% mu1 = zeros(dim,1); mu1([200 456 322]) = 130;
+for i = 1:dim  
+   if(LabelsTrain(i) == 1)
+       Sigma = Sigma + (DataTrain(i,:)'-mu1)*((DataTrain(i,:)'-mu1)');
+   end
+   
+   if(LabelsTrain(i) == 0)
+       Sigma = Sigma + (DataTrain(i,:)'-mu0)*((DataTrain(i,:)'-mu0)');
+   end
+end
+Sigma = Sigma/dim;
 
 end
 
