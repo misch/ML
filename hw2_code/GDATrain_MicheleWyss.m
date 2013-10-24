@@ -39,19 +39,15 @@ mu0 = mu0';
 mu1 = sum(repmat(LabelsTrain,dim,1)' .* DataTrain)/sum(LabelsTrain);
 mu1 = mu1';
 
-% dummy
-% phi = 0.5;
-Sigma = eye(dim);
+
+Sigma = zeros(dim);
 for i = 1:dim  
-   if(LabelsTrain(i) == 1)
-       Sigma = Sigma + (DataTrain(i,:)'-mu1)*((DataTrain(i,:)'-mu1)');
-   end
-   
-   if(LabelsTrain(i) == 0)
-       Sigma = Sigma + (DataTrain(i,:)'-mu0)*((DataTrain(i,:)'-mu0)');
-   end
+    meanVec = mu0;
+    if (LabelsTrain(i) > 0)
+        meanVec = mu1;
+    end   
+    Sigma = Sigma + ((DataTrain(i,:)'-meanVec)*((DataTrain(i,:)'-meanVec)'));   
 end
 Sigma = Sigma/dim;
-
 end
 
