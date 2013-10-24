@@ -64,8 +64,9 @@ LabelsTest = Labels(1,testIdx);
 % Training with Gaussian Discriminant Analysis
 fprintf('Training ... ');
 tic;
-[phi, mu0, mu1, Sigma] = GDATrain( DataTrain, LabelsTrain );
+% [phi, mu0, mu1, Sigma] = GDATrain( DataTrain, LabelsTrain );
 % [phi, mu0, mu1, Sigma] = GDATrain_SOLUTION( DataTrain, LabelsTrain );
+[phi, mu0, mu1, Sigma] = GDATrain_MicheleWyss( DataTrain, LabelsTrain );
 toc;
 
 %%
