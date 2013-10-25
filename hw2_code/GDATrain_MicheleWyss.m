@@ -13,33 +13,12 @@ phi = sum(LabelsTrain)/length(LabelsTrain);
 %%Compute the mean vectors - sketch of what I'm doing
 %
 %
-%                                                       3 4 5 6
-% given the labels e.g. [0 1 1] and the training data   4 5 6 7 , 
-%                                                       5 6 7 8
-% I just replicate the labels vector and transpose it:
-%
-%   0 0 0 0 
-%   1 1 1 1
-%   1 1 1 1
-%
-% After multiplying this component-wise with the training data,
-% the row_i will be zero where label_i is zero, and it will be the original
-% row if label_i is one. I can then simply sum up the columns.
-%
-%   0 0 0 0     3 4 5 6     0 0 0 0
-%   1 1 1 1 .*  4 5 6 7 =   4 5 6 7 ===> sum(...) = [9 11 13 15]
-%   1 1 1 1     5 6 7 8     5 6 7 8
-% 
-% To get the indicator function 1{label = 0}, I take the negation (~) of the
-% labels.
+% From DataTrain, select the rows where LabelsTrain is 1
+% with DataTrain(LabelsTrain,:).
+mu0 = (sum(DataTrain(~LabelsTrain,:))/sum(~LabelsTrain))';
+mu1 = (sum(DataTrain(LabelsTrain,:))/sum(LabelsTrain))';
 
-mu0 = sum(repmat(~LabelsTrain,dim,1)' .* DataTrain)/sum(~LabelsTrain);
-mu0 = mu0';
-
-mu1 = sum(repmat(LabelsTrain,dim,1)' .* DataTrain)/sum(LabelsTrain);
-mu1 = mu1';
-
-
+%Sigma = eye(dim);
 Sigma = zeros(dim);
 for i = 1:dim  
     meanVec = mu0;
