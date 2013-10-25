@@ -3,12 +3,12 @@ function [phi, mu0, mu1, Sigma] = GDATrain_MicheleWyss( DataTrain, LabelsTrain )
 % Immatriculation No.: 10-104-123
 
 dim = size(DataTrain,2);
-
+m = length(LabelsTrain);
 % map labels to {0,1}
 LabelsTrain = LabelsTrain>0;
 
 % phi
-phi = sum(LabelsTrain)/length(LabelsTrain);
+phi = sum(LabelsTrain)/m;
 
 %%Compute the mean vectors - sketch of what I'm doing
 %
@@ -20,13 +20,12 @@ mu1 = (sum(DataTrain(LabelsTrain,:))/sum(LabelsTrain))';
 
 %Sigma = eye(dim);
 Sigma = zeros(dim);
-for i = 1:dim  
+for i = 1:m
     meanVec = mu0;
     if (LabelsTrain(i) > 0)
         meanVec = mu1;
     end   
     Sigma = Sigma + ((DataTrain(i,:)'-meanVec)*((DataTrain(i,:)'-meanVec)'));   
 end
-Sigma = Sigma/dim;
+Sigma = Sigma/m;
 end
-
