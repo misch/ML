@@ -70,7 +70,7 @@ run([VLFEAT_FOLDER  '/toolbox/vl_setup']);
 
 tic;
 % ToDo: SVM training code
-[W,B] = vl_svmtrain(DataTrain',LabelsTrain',1);
+[W,B] = vl_svmtrain(DataTrain',LabelsTrain',1.2);
 toc;
 %keyboard
 %%
