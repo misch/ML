@@ -55,10 +55,12 @@ testPercent = 30;
 testIdx = rand(1,N) <= testPercent/100;
 trainIdx = ~testIdx;
 
-DataTrain = Data(trainIdx,:);
-LabelsTrain = Labels(1,trainIdx);
-DataTest = Data(testIdx,:);
-LabelsTest = Labels(1,testIdx);
+% DataTrain = Data(trainIdx,:);
+% LabelsTrain = Labels(1,trainIdx);
+% DataTest = Data(testIdx,:);
+% LabelsTest = Labels(1,testIdx);
+
+load('C:\Users\wyss\ML\hw3_code\splittet_data.mat')
 
 %%
 % Training 
