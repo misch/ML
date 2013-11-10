@@ -74,8 +74,8 @@ toc;
 %%
 % ToDo: Test Svm.
 % compute the test scores of the SVM
-%scores = W'*X(:,i)+B;% complete the code
-scores = 0;
+scores = W'*DataTest'+B;% complete the code
+
 
 
 classifierOutput = (scores >= 0.0) - (scores < 0.0);
