@@ -63,8 +63,8 @@ LabelsTest = Labels(1,testIdx);
 %%
 % Training 
 fprintf('Training ... ');
-VLFEAT_FOLDER = ''; %Put here the path to the root floder of VlFeat
-run([VLFEAT_FOLDER  '/toolbox/vl_setup.m']);
+VLFEAT_FOLDER = 'vlfeat'; %Put here the path to the root floder of VlFeat
+run([VLFEAT_FOLDER  '/toolbox/vl_setup']);
 
 tic;
 % Put here the SVM training code here
@@ -73,7 +73,7 @@ toc;
 %%
 % Test Svm.
 % compute the test scores of the SVM
-scores = ;% complete the code
+scores = 0;% complete the code
 
 classifierOutput = (scores >= 0.0) - (scores < 0.0);
 
