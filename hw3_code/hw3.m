@@ -63,17 +63,20 @@ LabelsTest = Labels(1,testIdx);
 %%
 % Training 
 fprintf('Training ... ');
-VLFEAT_FOLDER = 'vlfeat'; %Put here the path to the root floder of VlFeat
+VLFEAT_FOLDER = 'vlfeat'; %Put here the path to the root folder of VlFeat
 run([VLFEAT_FOLDER  '/toolbox/vl_setup']);
 
 tic;
-% Put here the SVM training code here
+% ToDo: SVM training code
+[W,B] = vl_svmtrain(DataTrain',LabelsTrain',1);
 toc;
 %keyboard
 %%
-% Test Svm.
+% ToDo: Test Svm.
 % compute the test scores of the SVM
-scores = 0;% complete the code
+%scores = W'*X(:,i)+B;% complete the code
+scores = 0;
+
 
 classifierOutput = (scores >= 0.0) - (scores < 0.0);
 
