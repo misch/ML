@@ -60,7 +60,7 @@ trainIdx = ~testIdx;
 % DataTest = Data(testIdx,:);
 % LabelsTest = Labels(1,testIdx);
 
-load('C:\Users\wyss\ML\hw3_code\splittet_data.mat')
+load('splitted_data.mat')
 
 %%
 % Training 
