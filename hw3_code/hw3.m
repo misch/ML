@@ -69,16 +69,11 @@ VLFEAT_FOLDER = 'vlfeat'; %Put here the path to the root folder of VlFeat
 run([VLFEAT_FOLDER  '/toolbox/vl_setup']);
 
 tic;
-% ToDo: SVM training code
 [W,B] = vl_svmtrain(DataTrain',LabelsTrain',1.2);
 toc;
-%keyboard
-%%
-% ToDo: Test Svm.
+
 % compute the test scores of the SVM
 scores = W'*DataTest'+B;% complete the code
-
-
 
 classifierOutput = (scores >= 0.0) - (scores < 0.0);
 
