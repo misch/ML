@@ -55,12 +55,14 @@ testPercent = 30;
 testIdx = rand(1,N) <= testPercent/100;
 trainIdx = ~testIdx;
 
-% DataTrain = Data(trainIdx,:);
-% LabelsTrain = Labels(1,trainIdx);
-% DataTest = Data(testIdx,:);
-% LabelsTest = Labels(1,testIdx);
+DataTrain = Data(trainIdx,:);
+LabelsTrain = Labels(1,trainIdx);
+DataTest = Data(testIdx,:);
+LabelsTest = Labels(1,testIdx);
 
-load('splitted_data.mat')
+% fixed data sets to test lambdas:
+% load('splitted_data.mat')
+% load('splitted_data2.mat')
 
 %%
 % Training 
@@ -119,7 +121,7 @@ ylabel('True Positive Rate');
 figure;
 n = 10; % number of examples in a row
 m = 3; % number of examples in a column
-%DataTest = Data(testIdx,:);
+DataTest = Data(testIdx,:);
 % faces (first row)
 ClassifiedFace = DataTest( classifierOutput>0 ,:);
 FaceGood = good( classifierOutput>0 );
