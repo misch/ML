@@ -68,8 +68,9 @@ fprintf('Training ... ');
 VLFEAT_FOLDER = 'vlfeat'; %Put here the path to the root folder of VlFeat
 run([VLFEAT_FOLDER  '/toolbox/vl_setup']);
 
+lambda = 0.01;
 tic;
-[W,B] = vl_svmtrain(DataTrain',LabelsTrain',1.2);
+[W,B] = vl_svmtrain(DataTrain',LabelsTrain',lambda,'MaxNumIterations',100000);
 toc;
 
 % compute the test scores of the SVM
@@ -118,7 +119,7 @@ ylabel('True Positive Rate');
 figure;
 n = 10; % number of examples in a row
 m = 3; % number of examples in a column
-DataTest = Data(testIdx,:);
+%DataTest = Data(testIdx,:);
 % faces (first row)
 ClassifiedFace = DataTest( classifierOutput>0 ,:);
 FaceGood = good( classifierOutput>0 );
@@ -159,8 +160,3 @@ for k = 1:min(3*n,sum(classifierOutput<0))
         title( 'Classified as non-face' );
     end
 end
-
-
-
-
-
