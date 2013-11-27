@@ -29,7 +29,7 @@ Cinit = X(:,perm(1:K));
 
 fprintf('k-means ... ');
 tic;
-[C, A] = Kmeans_Dummy(X, Cinit);
+[C, A] = Kmeans_MicheleWyss(X, Cinit);
 toc;
 
 %% display clustering
