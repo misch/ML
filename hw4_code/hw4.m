@@ -4,7 +4,7 @@ clc;
 
 %% load data
 load('data1.mat');
-% load('data2.mat');
+load('data2.mat');
 
 K = max(labels); % number of clusters
 
@@ -25,6 +25,7 @@ title('data with ground truth cluster labelling');
 
 %% cluster with k-means
 perm = randperm(size(X,2));
+% Cinit = X(:,perm(1:K));
 Cinit = X(:,perm(1:K));
 
 fprintf('k-means ... ');
@@ -37,7 +38,8 @@ figure;
 for j = 1:K
     scatter( X(1,A == j), X(2,A == j), colors{j} );
     hold on;
-    scatter( C(1,j), C(2,j), 100, colors{j}, 'fill' );
+%     scatter( Cinit(1,j), Cinit(2,j), 100, colors{j}, 'fill' );
+    scatter( C(1,j), C(2,j), 100, colors(j), 'fill' );
 end
 axis equal;
 title('clustered data');
