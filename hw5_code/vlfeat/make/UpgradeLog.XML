@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="octave">
+</Property><Property Name="Solution File" Value="C:\Users\Misch\Documents\GitHub\ML\hw5_code\vlfeat\make\octave.sln">
+</Property><Property Name="Date" Value="Mittwoch, 11. Dezember 2013">
+</Property><Property Name="Time" Value="11:36:57">
+</Property></Properties><Event ErrorLevel="2" Project="C:\Users\Misch\Documents\GitHub\ML\hw5_code\vlfeat\make\octave.mak" Source="octave" Description="Cannot load the project due to a corrupt project file.">
+</Event><Event ErrorLevel="2" Project="octave" Source="octave.mak" Description="Project upgrade failed.">
+</Event><Event ErrorLevel="3" Project="octave" Source="octave.mak" Description="Not Converted">
+</Event></UpgradeLog>
