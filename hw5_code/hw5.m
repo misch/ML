@@ -82,7 +82,7 @@ LabelsTest = Labels(1,testIdx);
 Faces = DataTrain(LabelsTrain == 1,:);
 
 %normalization
-[NormFaces] = normalizeData_YourName(Faces);
+[NormFaces] = normalizeData_MicheleWyss(Faces);
 
 %SVM setup
 lambda = 100;
