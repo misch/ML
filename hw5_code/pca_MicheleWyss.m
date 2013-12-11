@@ -8,7 +8,7 @@ function Eigen = pca_MicheleWyss(Data, k)
 %                eigenvector of the covariance matrix of Data.
 %
 
-[U, S, V] = svd(X);
+[U, S, V] = svd(Data');
 
 % Take the first k eigenvectors of the covariance matrix
 % that are in the first k columns of the U-matrix of the svd

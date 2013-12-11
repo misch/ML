@@ -97,11 +97,11 @@ k = 1;
 Efaces = pca_MicheleWyss(NormFaces,k);
 
 % Project Data to PCA basis
-DataTrain = project_YourName(DataTrain, Efaces);
-DataITest = project_YourName(DataITest, Efaces);
+DataTrain = project_MicheleWyss(DataTrain, Efaces);
+DataITest = project_MicheleWyss(DataITest, Efaces);
 
 % SVM
-[w, b] = vl_svmtrain(DataTrain', y, lambda, 'MaxNumIterations', svm_iters);
+%[w, b] = vl_svmtrain(DataTrain', y, lambda, 'MaxNumIterations', svm_iters);
 %[w, b] = vl_svmtrain(DataTrain', y, lambda);
 
 
