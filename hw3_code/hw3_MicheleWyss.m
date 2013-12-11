@@ -67,8 +67,20 @@ LabelsTest = Labels(1,testIdx);
 %%
 % Training 
 fprintf('Training ... ');
-VLFEAT_FOLDER = 'vlfeat'; %Put here the path to the root folder of VlFeat
-run([VLFEAT_FOLDER  '/toolbox/vl_setup']);
+
+% Am I running on octave?
+isOctave = exist('OCTAVE_VERSION') ~= 0;
+
+if isOctave
+    %VLFEAT_FOLDER = '~/Documents/vlfeat-0.9.17-octave/'; %Put here the path to the root floder of VlFeat
+    VLFEAT_FOLDER = 'vlfeat'; %Put here the path to the root folder of VlFeat
+    addpath ([VLFEAT_FOLDER, '/toolbox']);
+    vl_setup;
+else
+    VLFEAT_FOLDER = '~/Documents/vlfeat-0.9.17/'; %Put here the path to the root floder of VlFeat
+    VLFEAT_FOLDER = 'vlfeat'; %Put here the path to the root folder of VlFeat
+    run([VLFEAT_FOLDER  '/toolbox/vl_setup.m']);
+end
 
 lambda = 0.01;
 tic;
