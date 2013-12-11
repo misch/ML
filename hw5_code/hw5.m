@@ -94,7 +94,7 @@ y(y == 0) = -1;
 % PCA
 %number of eigenvectors
 k = 1;
-Efaces = pca_YourName(NormFaces,k);
+Efaces = pca_MicheleWyss(NormFaces,k);
 
 % Project Data to PCA basis
 DataTrain = project_YourName(DataTrain, Efaces);
